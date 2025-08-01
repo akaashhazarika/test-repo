@@ -1,0 +1,258 @@
+Certainly. Here is the full HTML for the article, updated with the requested publication time meta tag in the head section.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="article:published_time" content="2023-01-01T12:00:00.000Z" />
+    <title>Getting Started with Docker Compose V2: A Look at the Future</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            background-color: #fdfdfd;
+        }
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            font-family: "Georgia", serif;
+            color: #111;
+            line-height: 1.2;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.25em;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 1.5em;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        code {
+            font-family: "Fira Code", "Courier New", monospace;
+            font-size: 0.95em;
+        }
+        /* Inline code style */
+        p > code, li > code {
+            background-color: #eef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        blockquote {
+            border-left: 3px solid #007acc;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <article>
+            <h1>Getting Started with Docker Compose V2: A Look at the Future</h1>
+            <p class="subtitle">Say goodbye to the hyphen and hello to a faster, more integrated future for local development.</p>
+
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*Lg2D3xT2Y3z4q5bF6cR8Vw.png" alt="A stylized image showing the Docker logo next to building blocks, representing multi-container applications.">
+
+            <p>If you’re a developer in the Docker ecosystem, the command <code>docker-compose up</code> is probably as ingrained in your muscle memory as <code>git commit</code>. For years, Docker Compose has been the de facto standard for defining and running multi-container applications locally. It’s simple, it’s declarative, and it just works.</p>
+            <p>But a quiet, significant evolution is underway. A new version, <strong>Docker Compose V2</strong>, is here, and it’s more than just an incremental update. It represents a fundamental shift in how we interact with Compose, integrating it directly into the Docker CLI and setting the stage for a more unified developer experience.</p>
+            <p>This article will explore what Compose V2 is, why it’s a massive improvement, and how you can get a head start by using it today.</p>
+
+            <hr>
+
+            <h2>What Exactly <em>Is</em> Docker Compose V2?</h2>
+            <p>At its core, Compose V2 serves the same purpose: it lets you manage multi-container applications using a <code>docker-compose.yml</code> file. The big change isn’t in <em>what</em> it does, but in <em>how</em> it's built and executed.</p>
+            <p>The original Compose V1 was a standalone tool written in Python. You installed it separately via <code>pip</code> or as part of a Docker Desktop bundle.</p>
+            <p><strong>Docker Compose V2 is a complete rewrite in Go.</strong> It is now part of the main Docker CLI, not a separate tool.</p>
+            <p>This means the most visible change is in the command itself:</p>
+            <blockquote>What was <code>docker-compose</code> (with a hyphen) is now <code>docker compose</code> (with a space).</blockquote>
+            <p>This isn't just a cosmetic change. It signals that Compose is now a first-class citizen within the Docker command-line experience, just like <code>docker build</code> or <code>docker run</code>.</p>
+            
+            <hr>
+
+            <h2>The Big “Why”: Key Benefits of V2</h2>
+            <p>Why should you care about this change? The benefits are immediate and practical.</p>
+            <ol>
+                <li><strong>Blazing Fast Performance</strong><br>Because V2 is rewritten in compiled Go instead of interpreted Python, it’s noticeably faster. Startup times are quicker, and commands feel snappier. For complex applications with many services, this speed boost is a welcome quality-of-life improvement.</li>
+                <li><strong>Seamless CLI Integration</strong><br>No more managing a separate binary! Compose V2 ships directly with Docker Desktop. This means less setup, fewer versioning headaches, and a single, unified toolchain. New features will be developed and released in lockstep with the Docker Engine.</li>
+                <li><strong>Cloud Integrations</strong><br>Integrating Compose directly into the Docker CLI opens the door for powerful new features. Docker is already leveraging this to build out integrations with cloud providers like AWS and Azure, allowing you to potentially use the same Compose file to deploy your application from your laptop to the cloud.</li>
+            </ol>
+            
+            <hr>
+
+            <h2>Getting Your Hands Dirty: How to Use Compose V2</h2>
+            <p>Ready to try it out? If you're using a recent version of Docker Desktop, enabling it is simple.</p>
+            <h3>Step 1: Enable in Docker Desktop</h3>
+            <p>Navigate to your Docker Desktop settings:</p>
+            <ul>
+                <li><strong>On Mac:</strong> Click the Docker icon in the menu bar -> <code>Preferences...</code></li>
+                <li><strong>On Windows:</strong> Right-click the Docker icon in the system tray -> <code>Settings</code></li>
+            </ul>
+            <p>Go to the <strong>"Experimental Features"</strong> tab and ensure that the <strong>"Use Docker Compose V2"</strong> checkbox is ticked. Apply & Restart.</p>
+            <p><em>(Note: In the newest versions of Docker Desktop, V2 is the default, so this option may no longer be present.)</em></p>
+            
+            <h3>Step 2: Learn the New Commands</h3>
+            <p>Your existing <code>docker-compose.yml</code> files will work without any changes. You just need to swap the hyphen for a space in your commands.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Common Task</th>
+                        <th>Old Way (V1)</th>
+                        <th><strong>New Way (V2)</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Start services</td>
+                        <td><code>docker-compose up -d</code></td>
+                        <td><code>docker compose up -d</code></td>
+                    </tr>
+                    <tr>
+                        <td>Stop services</td>
+                        <td><code>docker-compose down</code></td>
+                        <td><code>docker compose down</code></td>
+                    </tr>
+                    <tr>
+                        <td>List services</td>
+                        <td><code>docker-compose ps</code></td>
+                        <td><code>docker compose ps</code></td>
+                    </tr>
+                    <tr>
+                        <td>View logs</td>
+                        <td><code>docker-compose logs -f</code></td>
+                        <td><code>docker compose logs -f</code></td>
+                    </tr>
+                    <tr>
+                        <td>Rebuild images</td>
+                        <td><code>docker-compose build</code></td>
+                        <td><code>docker compose build</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Step 3: A Practical Example</h3>
+            <p>Let's create a simple visitor-counter application with a Node.js web server and a Redis database.</p>
+            <p>First, create a <code>docker-compose.yml</code> file:</p>
+            <pre><code># docker-compose.yml
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+  redis:
+    image: "redis:alpine"
+</code></pre>
+
+            <p>Next, create a <code>package.json</code> for our Node app:</p>
+            <pre><code>{
+  "name": "visitor-counter",
+  "version": "1.0.0",
+  "description": "A simple visitor counter app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "redis": "3.1.2"
+  }
+}
+</code></pre>
+
+            <p>And finally, the application logic in <code>index.js</code>:</p>
+            <pre><code>// index.js
+const express = require('express');
+const redis = require('redis');
+
+const app = express();
+const client = redis.createClient({
+    host: 'redis', // The service name from our docker-compose.yml
+    port: 6379
+});
+
+client.set('visits', 0);
+
+app.get('/', (req, res) => {
+    client.get('visits', (err, visits) => {
+        res.send('Number of visits is: ' + visits);
+        client.set('visits', parseInt(visits) + 1);
+    });
+});
+
+app.listen(8000, () => {
+    console.log('Listening on port 8000');
+});
+</code></pre>
+            <p>Now, from your terminal, run the application using the new V2 command:</p>
+            <pre><code># Build the images and start the containers in detached mode
+$ docker compose up --build -d</code></pre>
+            <p>Navigate to <code>http://localhost:8000</code> in your browser. You should see "Number of visits is: 0". Each time you refresh, the number will increase.</p>
+            <p>When you’re finished, tear down the application:</p>
+            <pre><code># Stop and remove the containers and network
+$ docker compose down</code></pre>
+            <p>It’s that easy. You’ve just used the future of Docker Compose.</p>
+
+            <hr>
+
+            <h2>The Future is Now</h2>
+            <p>Docker Compose V2 is more than a version bump; it's a strategic move to create a more cohesive and powerful developer experience. It’s faster, simpler to manage, and positions Compose as a central pillar of the Docker toolkit.</p>
+            <p>While <code>docker-compose</code> with the hyphen may still work for a while to ensure backward compatibility, the future is <code>docker compose</code>. I highly encourage you to enable it, get used to the new syntax, and embrace the faster, more integrated workflow.</p>
+            <p>Happy composing! 🐳</p>
+        </article>
+    </main>
+
+</body>
+</html>
+```
